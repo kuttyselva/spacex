@@ -5,7 +5,8 @@ import {Link} from 'react-router-dom'
 export default function LaunchItems({launch:{flight_number,mission_name,launch_date_local,launch_success}}) {
     
     return (
-        <div className="card card-body mb-3">
+        <div className="card card-body mb-3 text-center">
+             <Link className="btn btn-secondary" to={`/launch/${flight_number}`}>
             <div className="row">
                 <div className="col-md-9">
                     <h4>Mission: <span className={classNames({
@@ -14,10 +15,9 @@ export default function LaunchItems({launch:{flight_number,mission_name,launch_d
                     })}>{mission_name}</span></h4>
                     <p>date: <Moment format="DD-MM-YYYY HH:mm">{launch_date_local}</Moment></p>
                 </div>
-                <div className="col-md-9">
-                    <Link className="btn btn-secondary" to={`/launch/${flight_number}`}>Launch Details</Link>
-                </div>
+               
             </div>
+            </Link>
         </div>
     )
 }

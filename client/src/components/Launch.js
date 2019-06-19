@@ -33,7 +33,6 @@ export class Launch extends Component {
                         console.log(data);
                         const {mission_name,flight_number,launch_year,launch_success,rocket:{rocket_id,rocket_name,rocket_type}}=data.launch;
                         return <div className="container">
-                             <Link to="/" className="btn btn-secondary">
                             <h1 className="display-4 my-3"> <span className="text-dark">Mission:</span>{mission_name}</h1>
                             <h4 className="mb-3">Launch Details</h4>
                             <ul className="list-group">
@@ -48,7 +47,7 @@ export class Launch extends Component {
                                 <li className="list-group-item">Rocket Name :  {rocket_name}</li>
                             </ul>
                             <hr/>
-                           </Link>
+                            <Link to="/" className="btn btn-secondary">Back</Link>
                         </div>
                     }}
               </Query>
