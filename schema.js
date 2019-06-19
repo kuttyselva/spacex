@@ -28,8 +28,18 @@ const RootQuery= new GraphQLObjectType({
         launches:{
             type:new GraphQLList(LaunchType),
             resolve(parent,args){
-                return axios.get('http://api.spacexdata.com/v3/launches')
+                return axios.get('https://api.spacexdata.com/v3/launches/')
                 .then(res => res.data);
+            }
+        },
+        launch:{
+            type:LaunchType,
+            args:{
+                flight_number:{type:GraphQLInt}
+            },
+            resolve(parent,args){
+                return axios.get(`https://api.spacexdata.com/v3/launches/${args.flight_number}`)
+                .then(res=>res.data);
             }
         }
     })
